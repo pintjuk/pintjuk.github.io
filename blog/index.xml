@@ -17,7 +17,13 @@
       <pubDate>Thu, 01 Aug 2019 22:51:31 +0200</pubDate>
       
       <guid>https://localhost:1313/blog/proposal-real-container-isolation-lets-port-docker-to-sel4/</guid>
-      <description>Description</description>
+      <description>Introduktion about docker
+about sel4
+about need for verifiable isolation
+how to design system on docker
+Docker now:
+Stage 1 on seL4
+Stage 2 on seL4</description>
     </item>
     
     <item>

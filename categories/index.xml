@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Cloud</title>
+      <link>https://localhost:1313/categories/cloud/</link>
+      <pubDate>Thu, 01 Aug 2019 22:51:31 +0200</pubDate>
+      
+      <guid>https://localhost:1313/categories/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Docker</title>
       <link>https://localhost:1313/categories/docker/</link>
       <pubDate>Thu, 01 Aug 2019 22:51:31 +0200</pubDate>
@@ -26,15 +35,6 @@
       <pubDate>Thu, 01 Aug 2019 22:51:31 +0200</pubDate>
       
       <guid>https://localhost:1313/categories/formal-verification/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>cloud</title>
-      <link>https://localhost:1313/categories/cloud/</link>
-      <pubDate>Thu, 01 Aug 2019 22:51:31 +0200</pubDate>
-      
-      <guid>https://localhost:1313/categories/cloud/</guid>
       <description></description>
     </item>
     
