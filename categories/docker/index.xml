@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Daniil Pintjuk</title>
-    <link>https://localhost:1313/blog/</link>
-    <description>Recent content in Blog on Daniil Pintjuk</description>
+    <title>Docker on Daniil Pintjuk</title>
+    <link>https://localhost:1313/categories/docker/</link>
+    <description>Recent content in Docker on Daniil Pintjuk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 01 Aug 2019 22:51:31 +0200</lastBuildDate>
     
-	<atom:link href="https://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://localhost:1313/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://localhost:1313/blog/proposal-real-container-isolation-lets-port-docker-to-sel4/</guid>
       <description>Description</description>
-    </item>
-    
-    <item>
-      <title>First post</title>
-      <link>https://localhost:1313/blog/first/</link>
-      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://localhost:1313/blog/first/</guid>
-      <description>Welcome to my blog</description>
     </item>
     
   </channel>
