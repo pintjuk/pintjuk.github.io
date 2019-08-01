@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Daniil Pintjuk</title>
-    <link>https://localhost:1313/blog/</link>
-    <description>Recent content in Blog on Daniil Pintjuk</description>
+    <title>Formal Verification on Daniil Pintjuk</title>
+    <link>https://localhost:1313/categories/formal-verification/</link>
+    <description>Recent content in Formal Verification on Daniil Pintjuk</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 02 Aug 2019 00:36:02 +0200</lastBuildDate>
     
-	<atom:link href="https://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://localhost:1313/categories/formal-verification/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       <guid>https://localhost:1313/blog/proposal-verifiably-secure-orchestration/</guid>
       <description>Some sort of automated orchestration of is a must in a modern, large-scale software service deployment. Kubernets for example is a very popular option.
 System administrators define declerativly the resaurces and services. The orkestration service takes care of distribuering the resources and services in order to keep all services avalable, monitoring the health of the service instances, and restarting them in case of crashes and migrating them to when resources go down.</description>
-    </item>
-    
-    <item>
-      <title>First post</title>
-      <link>https://localhost:1313/blog/first/</link>
-      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://localhost:1313/blog/first/</guid>
-      <description>Welcome to my blog</description>
     </item>
     
   </channel>
