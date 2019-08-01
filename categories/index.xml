@@ -12,7 +12,16 @@
     
     
     <item>
-      <title>Cloud</title>
+      <title>Formal Verification</title>
+      <link>https://localhost:1313/categories/formal-verification/</link>
+      <pubDate>Fri, 02 Aug 2019 00:36:02 +0200</pubDate>
+      
+      <guid>https://localhost:1313/categories/formal-verification/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>cloud</title>
       <link>https://localhost:1313/categories/cloud/</link>
       <pubDate>Fri, 02 Aug 2019 00:36:02 +0200</pubDate>
       
@@ -21,11 +30,11 @@
     </item>
     
     <item>
-      <title>Formal Verification</title>
-      <link>https://localhost:1313/categories/formal-verification/</link>
-      <pubDate>Fri, 02 Aug 2019 00:36:02 +0200</pubDate>
+      <title>Docker</title>
+      <link>https://localhost:1313/categories/docker/</link>
+      <pubDate>Thu, 01 Aug 2019 22:51:31 +0200</pubDate>
       
-      <guid>https://localhost:1313/categories/formal-verification/</guid>
+      <guid>https://localhost:1313/categories/docker/</guid>
       <description></description>
     </item>
     

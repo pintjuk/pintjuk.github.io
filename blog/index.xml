@@ -22,6 +22,15 @@ System administrators define declerativly the resaurces and services. The orkest
     </item>
     
     <item>
+      <title>Proposal: Real container isolation, lets port docker to seL4  </title>
+      <link>https://localhost:1313/blog/proposal-real-container-isolation-lets-port-docker-to-sel4/</link>
+      <pubDate>Thu, 01 Aug 2019 22:51:31 +0200</pubDate>
+      
+      <guid>https://localhost:1313/blog/proposal-real-container-isolation-lets-port-docker-to-sel4/</guid>
+      <description>  About docker About sel4 About need for verifiable isolation Use case Proposed design 1 and 2 Knows, unknows, learning milestones  Normal docker: Design1: Design2: </description>
+    </item>
+    
+    <item>
       <title>First post</title>
       <link>https://localhost:1313/blog/first/</link>
       <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
