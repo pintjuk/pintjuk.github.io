@@ -17,9 +17,7 @@
       <pubDate>Thu, 01 Aug 2019 22:51:31 +0200</pubDate>
       
       <guid>https://localhost:1313/blog/proposal-real-container-isolation-lets-port-docker-to-sel4/</guid>
-      <description>About docker About sel4 About need for verifiable isolation Use case Proposed design 1 and 2 Knows, unknows, learning milestones  Normal docker:
- Design1:
-Design2:</description>
+      <description>  About docker About sel4 About need for verifiable isolation Use case Proposed design 1 and 2 Knows, unknows, learning milestones  Normal docker: Design1: Design2: </description>
     </item>
     
   </channel>
