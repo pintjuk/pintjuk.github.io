@@ -18,8 +18,8 @@
       
       <guid>https://localhost:1313/blog/proposal-real-container-isolation-lets-port-docker-to-sel4/</guid>
       <description>about docker about sel4 about need for verifiable isolation use case proposed design 1 and 2 Knows, unknows, learning milestones  Normal docker:
- Stage 1 on seL4
-Stage 2 on seL4</description>
+ Design1:
+Design2:</description>
     </item>
     
     <item>
