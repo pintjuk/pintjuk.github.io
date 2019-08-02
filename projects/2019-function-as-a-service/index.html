@@ -298,7 +298,7 @@
 
 <p>This is a small GoLang infrastructure app that enables one to deploy simple REST servers, acting as single functions. The goal was to deploy and scale the functions horizontally with ease. To achieve this, we leveraged the scaling and service discovery that comes for free in a docker-compose and swarm.</p>
 
-<p>The core component is the FaaS Gateway. The image above illustrates the idea. The gateway uses docker to discover function dynamically and updating an internal table, a table of functions, and the containers providing them.  When the gateway receives the request: &lsquo;GET lambda/function-3?param-1=123&amp;param-2=456&rsquo; redirect the request containers with the tag &lsquo;faas:name=function-3&rsquo; in a round-robin fashion.</p>
+<p>The core component is the FaaS Gateway. The image above illustrates the idea. The gateway uses docker to discover function dynamically and updating an internal table, a table of functions, and the containers providing them.  When the gateway receives the request: <code>GET lambda/function-3?param-1=123&amp;param-2=456</code> redirect the request containers with the tag <code>faas:name=function-3</code> in a round-robin fashion.</p>
 
 <h2 id="creating-your-function">Creating your function</h2>
 
@@ -319,7 +319,7 @@ func main() {
 }
 </code></pre>
 
-<p>Just pass any GoLang function to RunFunc, and the library will spin up a web server running this function. It will automatically detect the number of parameters and map them to query parameters &lsquo;param-1&amp;param-2&amp; &hellip;&amp;param-n&rsquo; of the incoming requests.</p>
+<p>Just pass any GoLang function to RunFunc, and the library will spin up a web server running this function. It will automatically detect the number of parameters and map them to query parameters <code>?param-1&amp;param-2&amp; ...&amp;param-n</code> of the incoming requests.</p>
 
 <p>To make it work with the FAAS-Gateway, you need to deploy it in a docker container with the following labels:</p>
 
