@@ -335,9 +335,8 @@ func main() {
 
 <p>This is a docker file for the example function addition function above:</p>
 
-<p>FROM golang:1.9</p>
-
-<pre><code class="language-docker"># go stuff
+<pre><code class="language-docker">FROM golang:1.9
+# go stuff
 RUN go get -u github.com/kardianos/govendor &amp;&amp; \
 go get -u -v github.com/codeskyblue/fswatch
 RUN mkdir -p /go/src/github.com/pintjuk/faas/addition
