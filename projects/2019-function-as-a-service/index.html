@@ -15,7 +15,7 @@
 
 <meta itemprop="datePublished" content="2019-01-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-01-01T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="229">
+<meta itemprop="wordCount" content="356">
 
 
 
@@ -296,12 +296,69 @@
   <div class="content">
     
 
-<p>This is a small GoLang infrastructure app that enables to easy deploy a simple server acting like
-single functions. The goal was to easily deploy and scale the app horizontally. To achive this we leveraged the scaling, service discovery that come for free in a docker compose and swarm environment.</p>
+<p>This is a small GoLang infrastructure app that enables one to deploy simple REST servers, acting as single functions. The goal was to deploy and scale the functions horizontally with ease. To achieve this, we leveraged the scaling and service discovery that comes for free in a docker-compose and swarm.</p>
 
-<p>The core component is the FaaS Gateway that uses docker to dynamicaly descover function and rederect requests to them. The image above illustrates the idaa.</p>
+<p>The core component is the FaaS Gateway. The image above illustrates the idea. The gateway uses docker to discover function dynamically and updating an internal table, a table of functions, and the containers providing them.  When the gateway receives the request: &lsquo;GET lambda/function-3?param-1=123&amp;param-2=456&rsquo; redirect the request containers with the tag &lsquo;faas:name=function-3&rsquo; in a round-robin fashion.</p>
 
-<h2 id="installing">Installing</h2>
+<h2 id="creating-your-function">Creating your function</h2>
+
+<p>A function service is a docker container running a micro-service implemented as a single simple golang function.</p>
+
+<p>Creating a function service is straight forward using the faas/function library.</p>
+
+<pre><code class="language-golang">import (
+    &quot;github.com/pintjuk/faas/function&quot;
+)
+
+func main() {
+    function.RunFunc([]string{&quot;a&quot;, &quot;b&quot;},
+        func(a float64, b float64) float64 {
+            return a + b
+        },
+        &quot;:8080&quot;)
+}
+</code></pre>
+
+<p>Just pass any GoLang function to RunFunc, and the library will spin up a web server running this function. It will automatically detect the number of parameters and map them to query parameters &lsquo;param-1&amp;param-2&amp; &hellip;&amp;param-n&rsquo; of the incoming requests.</p>
+
+<p>To make it work with the FAAS-Gateway, you need to deploy it in a docker container with the following labels:</p>
+
+<pre><code>faas.name={name of your function}
+</code></pre>
+
+<p>and</p>
+
+<pre><code>faas.port={the port you used for its web server}
+</code></pre>
+
+<p>With these labels, the FAAS gateway will detect your function container automatically and start forwarding function calls to it as soon as your container is up.</p>
+
+<p>This is a docker file for the example function addition function above:</p>
+
+<p>FROM golang:1.9</p>
+
+<pre><code class="language-docker"># go stuff
+RUN go get -u github.com/kardianos/govendor &amp;&amp; \
+go get -u -v github.com/codeskyblue/fswatch
+RUN mkdir -p /go/src/github.com/pintjuk/faas/addition
+WORKDIR /go/src/github.com/pintjuk/faas/addition
+EXPOSE 8080
+CMD govendor fetch +m ; go run cmd/*/*.go
+</code></pre>
+
+<p>And this is its docker compose entry:</p>
+
+<pre><code class="language-docker-compose">addition:
+        build:
+            context: ./addition
+        labels:
+            - &quot;faas.name=addition&quot;
+            - &quot;faas.port=8080&quot;
+        volumes:
+            - ./addition:/go/src/github.com/pintjuk/faas/addition
+</code></pre>
+
+<h2 id="installation">Installation</h2>
 
 <h3 id="requirements">Requirements</h3>
 
@@ -311,59 +368,32 @@ single functions. The goal was to easily deploy and scale the app horizontally. 
 <li>Govendor</li>
 </ol>
 
-<p>Install go.</p>
+<h3 id="installation-steps">Installation steps</h3>
 
-<p>Install docker and docker compose.</p>
+<ol>
+<li>Install GoLang.</li>
+<li>Install docker and docker-compose.</li>
 
-<p>Install govendor:</p>
+<li><p>Install Govendor:</p>
 
 <pre><code class="language-bash">go get -u github.com/kardianos/govendor
-</code></pre>
+</code></pre></li>
 
-<p>Clone this repo:</p>
+<li><p>Clone this repo:</p>
 
 <pre><code class="language-bash">git clone https://github.com/kardianos/govendor.git
-</code></pre>
+</code></pre></li>
+</ol>
 
 <h2 id="running-faas">Running FAAS</h2>
 
+<ol>
+<li><p>up faas-gateway and function services</p>
+
 <pre><code class="language-bash">cd faas
-docker-compuose up
-</code></pre>
-
-<h2 id="creating-a-your-function">Creating a your function</h2>
-
-<p>A function is a docker container runing a micro service implemented as a single simple golang function.</p>
-
-<p>Creating a function is easy using the faas/function library.</p>
-
-<pre><code class="language-golang">import (
-	&quot;github.com/pintjuk/faas/function&quot;
-)
-
-func main() {
-	function.RunFunc([]string{&quot;a&quot;, &quot;b&quot;},
-		func(a float64, b float64) float64 {
-			return a + b
-		},
-		&quot;:8080&quot;)
-}
-</code></pre>
-
-<p>Just pas any regular golang function to RunFunc, and the library will spin up a web server running this function.</p>
-
-<p>to make it work with the FAAS gateway you need to run it in a docker container with with labels</p>
-
-<pre><code>
-faas.name={name of your function}
-</code></pre>
-
-<p>and</p>
-
-<pre><code>faas.port={the port you used for its web server}
-</code></pre>
-
-<p>With this lables the FAAS gateway will detect your function container automatically and start forwarding function calls to it.</p>
+docker-compose up
+</code></pre></li>
+</ol>
 
   </div>
   <footer>

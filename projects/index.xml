@@ -17,8 +17,8 @@
       <pubDate>Tue, 01 Jan 2019 00:00:00 +0000</pubDate>
       
       <guid>https://localhost:1313/projects/2019-function-as-a-service/</guid>
-      <description>This is a small GoLang infrastructure app that enables to easy deploy a simple server acting like single functions. The goal was to easily deploy and scale the app horizontally. To achive this we leveraged the scaling, service discovery that come for free in a docker compose and swarm environment.
-The core component is the FaaS Gateway that uses docker to dynamicaly descover function and rederect requests to them. The image above illustrates the idaa.</description>
+      <description>This is a small GoLang infrastructure app that enables one to deploy simple REST servers, acting as single functions. The goal was to deploy and scale the functions horizontally with ease. To achieve this, we leveraged the scaling and service discovery that comes for free in a docker-compose and swarm.
+The core component is the FaaS Gateway. The image above illustrates the idea. The gateway uses docker to discover function dynamically and updating an internal table, a table of functions, and the containers providing them.</description>
     </item>
     
   </channel>
