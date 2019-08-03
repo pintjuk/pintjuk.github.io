@@ -360,15 +360,15 @@ CMD govendor fetch +m ; go run cmd/*/*.go
 
 <pre><code class="language-tree">    ├── README.md
     ├── addition					
-    │   ├── Dockerfile				&lt;- docker file for fuction
+    │   ├── Dockerfile              &lt;- docker file for fuction
     │   └── cmd
     │       └── additiond
-    │           └── addition.go		&lt;- function source 
-    ├── docker-compose.yml			&lt;- compose file
-    ├── function					&lt;- faas/function library
+    │           └── addition.go     &lt;- function source 
+    ├── docker-compose.yml          &lt;- compose file
+    ├── function                    &lt;- faas/function library
     │   ├── function.go
     │   └── function_test.go
-    ├── gateway						&lt;- Faas Gateway
+    ├── gateway                     &lt;- Faas Gateway
     │   ├── Dockerfile
     │   ├── cmd
     │   │   └── gatewayd
