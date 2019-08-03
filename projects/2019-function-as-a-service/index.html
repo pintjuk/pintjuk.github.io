@@ -15,7 +15,7 @@
 
 <meta itemprop="datePublished" content="2019-01-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-01-01T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="425">
+<meta itemprop="wordCount" content="424">
 
 
 
@@ -325,12 +325,8 @@ func main() {
 
 <p>To make it work with the FAAS-Gateway, you need to deploy it in a docker container with the following labels:</p>
 
-<pre><code>faas.name={name of your function}
-</code></pre>
-
-<p>and</p>
-
-<pre><code>faas.port={the port you used for its web server}
+<pre><code>faas.name={name of your function} 
+faas.port={the port you used for its web server}
 </code></pre>
 
 <p>With these labels, the FAAS gateway will detect your function container automatically and start forwarding function calls to it as soon as your container is up.</p>
