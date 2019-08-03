@@ -15,7 +15,7 @@
 
 <meta itemprop="datePublished" content="2019-01-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-01-01T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="356">
+<meta itemprop="wordCount" content="353">
 
 
 
@@ -302,9 +302,11 @@
 
 <h2 id="creating-your-function">Creating your function</h2>
 
-<p>A function service is a docker container running a micro-service implemented as a single simple golang function.</p>
+<p>A function service is micro-service executing a single golang function.</p>
 
-<p>Creating a function service is straight forward using the faas/function library.</p>
+<p>Creating a function service is straight forward using the <code>faas/function</code> library.</p>
+
+<p><strong>/go/src/github.com/pintjuk/faas/addition/main.go:</strong></p>
 
 <pre><code class="language-golang">import (
     &quot;github.com/pintjuk/faas/function&quot;
@@ -336,9 +338,10 @@ func main() {
 <p>This is a docker file for the example function addition function above:</p>
 
 <pre><code class="language-docker">FROM golang:1.9
-# go stuff
+# install govender and fswatch
 RUN go get -u github.com/kardianos/govendor &amp;&amp; \
 go get -u -v github.com/codeskyblue/fswatch
+# 
 RUN mkdir -p /go/src/github.com/pintjuk/faas/addition
 WORKDIR /go/src/github.com/pintjuk/faas/addition
 EXPOSE 8080
@@ -384,7 +387,7 @@ CMD govendor fetch +m ; go run cmd/*/*.go
 </code></pre></li>
 </ol>
 
-<h2 id="running-faas">Running FAAS</h2>
+<h2 id="running-faas">Running FaaS</h2>
 
 <ol>
 <li><p>up faas-gateway and function services</p>
