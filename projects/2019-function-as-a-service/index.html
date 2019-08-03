@@ -15,7 +15,7 @@
 
 <meta itemprop="datePublished" content="2019-01-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-01-01T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="345">
+<meta itemprop="wordCount" content="427">
 
 
 
@@ -237,7 +237,7 @@
     </time>
     <span class="author">Daniil Pintjuk</span>
     
-        <p>2 minute read</p>
+        <p>3 minute read</p>
     
   </div>
 </header>
@@ -306,7 +306,7 @@
 
 <p>Creating a function service is straight forward using the <code>faas/function</code> library.</p>
 
-<p><strong>/go/src/github.com/pintjuk/faas/addition/main.go:</strong></p>
+<p><strong>/go/src/github.com/pintjuk/faas/addition/addition.go:</strong></p>
 
 <pre><code class="language-golang">import (
     &quot;github.com/pintjuk/faas/function&quot;
@@ -335,7 +335,8 @@ func main() {
 
 <p>With these labels, the FAAS gateway will detect your function container automatically and start forwarding function calls to it as soon as your container is up.</p>
 
-<p>This is a docker file for the example function addition function above:</p>
+<p>This is a docker file for the example function addition function above:
+<strong>addition/Dockerfile:</strong></p>
 
 <pre><code class="language-docker">FROM golang:1.9
 # install govender and fswatch
@@ -346,7 +347,8 @@ EXPOSE 8080
 CMD govendor fetch +m ; go run cmd/*/*.go
 </code></pre>
 
-<p>And this is its docker compose entry:</p>
+<p>And this is its docker compose entry:
+<strong>docker-compose.yml:</strong></p>
 
 <pre><code class="language-docker-compose">addition:
         build:
@@ -356,6 +358,30 @@ CMD govendor fetch +m ; go run cmd/*/*.go
             - &quot;faas.port=8080&quot;
         volumes:
             - ./addition:/go/src/github.com/pintjuk/faas/addition
+</code></pre>
+
+<p>The above stripts are executed in the following folder strucutre:</p>
+
+<pre><code>├── README.md
+├── addition // addition example function
+│   ├── Dockerfile
+│   └── cmd
+│       └── additiond
+│           └── addition.go
+├── docker-compose.yml 
+├── function // faas/function library
+│   ├── function.go
+│   └── function_test.go
+├── gateway // Faas Gateway
+│   ├── Dockerfile
+│   ├── cmd
+│   │   └── gatewayd
+│   │       ├── bin
+│   │       ├── gatewayd.go
+│   │       └── vendor
+│   │           └── vendor.json
+│   └── vendor
+│       └── vendor.json
 </code></pre>
 
 <h2 id="installation">Installation</h2>
