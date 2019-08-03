@@ -325,7 +325,7 @@ func main() {
 
 <p>To make it work with the FAAS-Gateway, you need to deploy it in a docker container with the following labels:</p>
 
-<pre><code class="language-Docker-compose">faas.name={name of your function} 
+<pre><code class="language-ymal">faas.name={name of your function} 
 faas.port={the port you used for its web server}
 </code></pre>
 
@@ -334,7 +334,7 @@ faas.port={the port you used for its web server}
 <p>This is a docker file for the example function addition function above:
 <strong>addition/Dockerfile:</strong></p>
 
-<pre><code class="language-docker">FROM golang:1.9
+<pre><code class="language-Dockerfile">FROM golang:1.9
 # install govender and fswatch
 RUN go get -u github.com/kardianos/govendor
 RUN mkdir -p /go/src/github.com/pintjuk/faas/addition
