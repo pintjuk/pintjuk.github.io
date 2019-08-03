@@ -15,7 +15,7 @@
 
 <meta itemprop="datePublished" content="2019-01-01T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-01-01T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="424">
+<meta itemprop="wordCount" content="431">
 
 
 
@@ -237,7 +237,7 @@
     </time>
     <span class="author">Daniil Pintjuk</span>
     
-        <p>2 minute read</p>
+        <p>3 minute read</p>
     
   </div>
 </header>
@@ -359,16 +359,16 @@ CMD govendor fetch +m ; go run cmd/*/*.go
 <p>This is the folder structure for this example:</p>
 
 <pre><code>├── README.md
-├── addition // addition example function
-│   ├── Dockerfile
+├── addition                    
+│   ├── Dockerfile              &lt;- docker file for fuction
 │   └── cmd
 │       └── additiond
-│           └── addition.go
-├── docker-compose.yml 
-├── function // faas/function library
+│           └── addition.go     &lt;- function source 
+├── docker-compose.yml          &lt;- compose file
+├── function                    &lt;- faas/function library
 │   ├── function.go
 │   └── function_test.go
-├── gateway // Faas Gateway
+├── gateway                     &lt;- Faas Gateway
 │   ├── Dockerfile
 │   ├── cmd
 │   │   └── gatewayd
